@@ -7,6 +7,14 @@
   with_items: elk_common_packages
   sudo: yes
 
+- name: Install pip
+  command: easy_install pip
+  sudo: yes
+
+- name: Ensure python-setuptools is installed.
+  apt: pkg=python-setuptools state=present update_cache=yes
+  sudo: yes
+
 - name: Monit conf file
   copy:
     src=monitrc
